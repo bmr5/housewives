@@ -27,8 +27,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col min-h-screen">
-        <div className="w-full px-4 md:w-[60rem] flex flex-col gap-7 md:px-20">
+      <main className="flex flex-col items-center min-h-screen">
+        <div className="w-full px-4 md:w-[60rem] flex flex-col gap-7 md:px-20 mt-4">
           <div className="">
             <Image
               src="/housewives-logo.jpeg"
@@ -67,7 +67,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="sticky top-[100vh] w-full px-20 pb-4">
+        <div className="sticky top-[100vh] w-full pb-4 flex justify-center">
           <Search />
         </div>
       </main>
