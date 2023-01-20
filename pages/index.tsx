@@ -27,8 +27,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex justify-center">
-        <div className="w-[60rem] flex flex-col gap-7 px-20 py-4 max-h-screen">
+      <main className="flex flex-col min-h-screen">
+        <div className="w-full px-4 md:w-[60rem] flex flex-col gap-7 md:px-20">
           <div className="">
             <Image
               src="/housewives-logo.jpeg"
@@ -37,7 +37,7 @@ export default function Home() {
               height={80}
             />
           </div>
-          <div className="flex justify-center text-center text-5xl">
+          <div className="flex justify-center text-center text-2xl sm:text-4xl md:text-5xl">
             <p>
               Ask me anything about the Real Housewives of Beverly Hills
               <span role="img" aria-label="diamond" className="px-1">
@@ -48,7 +48,7 @@ export default function Home() {
               </span>
             </p>
           </div>
-          <div className="flex justify-center w-3/4 self-center gap-6 text-center">
+          <div className="flex justify-center w-full md:w-3/4 self-center gap-6 text-center">
             <div className="flex flex-col gap-2">
               <h1 className="">Examples</h1>
               <div className="flex flex-col gap-2">
@@ -66,6 +66,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="sticky top-[100vh] w-full px-20 pb-4">
           <Search />
         </div>
       </main>
