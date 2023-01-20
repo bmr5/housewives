@@ -67,7 +67,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="sticky top-[100vh] w-full md:w-[60rem] pb-4 flex justify-center">
+        <div className="sticky top-[100vh] w-full md:w-[60rem] pb-4 flex justify-center pt-2">
           <Search />
         </div>
       </main>
