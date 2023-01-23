@@ -1,24 +1,17 @@
+import React, { useContext } from "react";
+
 import Head from "next/head";
-import Image from "next/image";
-import Card from "./components/Card";
-import Search from "./components/Search";
-
-const examples = [
-  "Will Kyle's relationship ever emotionally fulfill her?",
-  "What is the name of Lisa Vanderpump's dog?",
-  "How would Yolanda recommend treating Lyme disease?",
-  "Where does Lisa Rinna live?",
-  "How many restaurants does Lisa Vanderpump own?",
-];
-
-const capabilities = [
-  "Search anything that happened from all 12+ season of RHOBH",
-  "Ask questions related to what happened in an episode or season",
-  "Answers narrated by our favorite talk show host, Andy Cohen!",
-  "Ask phrases or keywords like 'Lisa Rinna' or 'Lisa Vanderpump'",
-];
+import Search from "../components/Search";
+import CTA from "../components/CTA";
+import Logo from "../components/Logo";
+import Content from "../components/Content";
+import Conversation from "../components/Conversation";
+import { DialogContext } from "../providers/DialogProvider";
+import SelectMenu from "../components/SelectMenu";
 
 export default function Home() {
+  const { conversation } = useContext(DialogContext);
+
   return (
     <div className="">
       <Head>
@@ -28,48 +21,19 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center min-h-screen">
-        <div className="w-full px-4 md:w-[60rem] flex flex-col gap-7 md:px-20 mt-4">
-          <div className="">
-            <Image
-              src="/housewives-logo.jpeg"
-              alt="Housewives Logo"
-              width={175}
-              height={80}
-            />
-          </div>
-          <div className="flex justify-center text-center text-2xl sm:text-4xl md:text-5xl">
-            <p>
-              Ask me anything about the Real Housewives of Beverly Hills
-              <span role="img" aria-label="diamond" className="px-1">
-                💎
-              </span>
-              <span role="img" aria-label="painted nails" className="px-1">
-                💅
-              </span>
-            </p>
-          </div>
-          <div className="flex justify-center w-full md:w-3/4 self-center gap-6 text-center">
-            <div className="flex flex-col gap-2">
-              <h1 className="">Examples</h1>
-              <div className="flex flex-col gap-2">
-                {examples.map((example) => {
-                  return <Card key={example} content={example} />;
-                })}
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h1 className="text-center">Capabilities</h1>
-              <div className="flex flex-col gap-2">
-                {capabilities.map((capability) => {
-                  return <Card key={capability} content={capability} />;
-                })}
-              </div>
-            </div>
-          </div>
+        <div className="w-full md:w-[50rem] lg:w-[65rem] flex flex-col gap-7 px-4 md:px-20 mt-4">
+          <Logo />
+          <CTA />
+          {conversation && conversation.length > 0 ? (
+            <Conversation />
+          ) : (
+            <Content />
+          )}
         </div>
-        <div className="sticky top-[100vh] w-full md:w-[60rem] pb-4 flex justify-center pt-2">
+        <footer className="sticky top-[100vh] flex gap-2 justify-center w-full md:w-[50rem] lg:w-[65rem] pb-4 pt-2 px-4 md:px-20">
           <Search />
-        </div>
+          <SelectMenu />
+        </footer>
       </main>
     </div>
   );
