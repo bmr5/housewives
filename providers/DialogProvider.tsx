@@ -31,8 +31,6 @@ export const DialogProvider = ({ children }: Props) => {
     name: "rhobh",
   });
 
-  console.log("provider", { conversation });
-
   return (
     <DialogContext.Provider
       value={{

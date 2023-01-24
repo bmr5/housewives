@@ -7,7 +7,7 @@ type Props = {
   onError: (err: any) => void;
 };
 
-const url = "https://api.askthings.app/query";
+const url = "https://api.askthings.app/hyde_query";
 const headers = {
   "Content-Type": "application/json",
   Authorization: "Bearer bofa-deez-nuts",

@@ -2,20 +2,18 @@ import React, { useContext, useEffect } from "react";
 import DialogCard from "./DialogCard";
 import { DialogContext } from "../providers/DialogProvider";
 
-const testConvo = [
-  {
-    id: 0,
-    query: "What is your name?",
-    answer: "My name is John Doe",
-  },
-];
-
 export default function Conversation() {
   const { conversation } = useContext(DialogContext);
-  console.log("Conversation Component", { conversation });
+  const conversationDivRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log("Conversation Component useEffect", { conversation });
+    if (conversationDivRef.current) {
+      const { scrollHeight, clientHeight, scrollTop } =
+        conversationDivRef.current;
+      if (scrollTop + clientHeight !== scrollHeight) {
+        conversationDivRef.current.scrollTop = scrollHeight - clientHeight;
+      }
+    }
   }, [conversation]);
 
   const generateList = () => {
@@ -34,7 +32,13 @@ export default function Conversation() {
   };
 
   return (
-    <div className="flow-root">
+    <div
+      ref={conversationDivRef}
+      style={{
+        maxHeight: `calc(100vh - 280px)`,
+      }}
+      className={`flex-grow w-full overflow-auto`}
+    >
       <ul role="list" className="flex flex-col gap-4">
         {generateList()}
       </ul>

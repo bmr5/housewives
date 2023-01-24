@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { UserIcon, ComputerDesktopIcon } from "@heroicons/react/20/solid";
 import Loader from "./Loader";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 type Props = { text: string; type: "question" | "answer" };
 
@@ -25,12 +27,38 @@ function DialogCard({ text, type }: Props) {
           )}
         </span>
       </div>
-      <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+      <div className="flex min-w-0 flex-1 justify-between items-center space-x-4">
         <div>
           {text === "setLoadingIndicator" ? (
             <Loader />
           ) : (
-            <p className="text-sm text-gray-500">{text}</p>
+            <div className="text-sm text-gray-500">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h1: ({ node, ...props }) => (
+                    <h1 className="font-bold" {...props} />
+                  ),
+                  li: ({ node, ...props }) => {
+                    const { ordered } = props;
+                    return (
+                      <li
+                        className={`list-inside ${
+                          ordered ? "list-decimal" : "list-disc"
+                        }`}
+                        {...props}
+                      />
+                    );
+                  },
+                  em: ({ node, ...props }) => (
+                    <i className="font-bold" {...props} />
+                  ),
+                  p: ({ node, ...props }) => <p className="mb-2" {...props} />,
+                }}
+              >
+                {text}
+              </ReactMarkdown>
+            </div>
           )}
         </div>
         {/* <div className="whitespace-nowrap text-right text-sm text-gray-500">

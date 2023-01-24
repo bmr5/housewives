@@ -1,17 +1,14 @@
-import { Fragment, useState, useContext } from "react";
+import { Fragment, useContext } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import combineClassNames from "../hooks/combineClassNames";
 import { DialogContext } from "../providers/DialogProvider";
 
-const indexes = [
-  { id: 1, name: "rhobh" },
-  { id: 2, name: "stargate" },
-  { id: 3, name: "wh40k" },
-  { id: 4, name: "idk" },
-];
+type Props = {
+  indexes: { id: number; name: string }[];
+};
 
-export default function SelectMenu() {
+export default function SelectMenu({ indexes }: Props) {
   const { setSelectedIndex, selectedIndex } = useContext(DialogContext);
 
   return (

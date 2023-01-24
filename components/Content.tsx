@@ -18,7 +18,16 @@ const capabilities = [
 
 function Content() {
   const { width, height } = useWindowDimensions();
-  let itemCount = height < 600 ? 3 : 4;
+  let itemCount = 1;
+  if (height > 420) {
+    itemCount = 2;
+  }
+  if (height > 500) {
+    itemCount = 3;
+  }
+  if (height > 600) {
+    itemCount = 4;
+  }
 
   return (
     <div className="flex justify-center w-full md:w-4/5 self-center gap-6 text-center">
