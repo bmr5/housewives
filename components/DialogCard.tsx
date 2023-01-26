@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { UserIcon, ComputerDesktopIcon } from "@heroicons/react/20/solid";
 import Loader from "./Loader";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 
 type Props = { text: string; type: "question" | "answer" };
 
@@ -34,7 +33,6 @@ function DialogCard({ text, type }: Props) {
           ) : (
             <div className="text-sm text-gray-500">
               <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
                 components={{
                   h1: ({ node, ...props }) => (
                     <h1 className="font-bold" {...props} />
@@ -53,7 +51,17 @@ function DialogCard({ text, type }: Props) {
                   em: ({ node, ...props }) => (
                     <i className="font-bold" {...props} />
                   ),
-                  p: ({ node, ...props }) => <p className="mb-2" {...props} />,
+                  p: ({ node, ...props }) => {
+                    return <p className="mb-2" {...props} />;
+                  },
+                  code: ({ node, ...props }) => {
+                    return <p className="" {...props} />;
+                  },
+                  pre: ({ node, ...props }) => {
+                    console.log({ node, props });
+
+                    return <p className="" {...props} />;
+                  },
                 }}
               >
                 {text}

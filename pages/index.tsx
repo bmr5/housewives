@@ -10,6 +10,7 @@ import { DialogContext } from "../providers/DialogProvider";
 import SelectMenu from "../components/SelectMenu";
 import getIndexes from "../hooks/getIndexes";
 import { InferGetStaticPropsType } from "next";
+import Footer from "../components/Footer";
 
 export default function Home({
   indexes,
@@ -24,7 +25,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center min-h-screen">
+      <main className="flex flex-col items-center h-screen">
         <div
           style={{ maxHeight: "calc(100vh-20px)" }}
           className="w-full md:w-[50rem] lg:w-[65rem] flex flex-col flex-1 gap-7 px-4 md:px-20 mt-4"
@@ -37,9 +38,10 @@ export default function Home({
             <Content />
           )}
         </div>
-        <footer className="sticky top-[100vh] flex gap-2 justify-center items-center w-full md:w-[50rem] lg:w-[65rem] pb-4 px-4 md:px-20 h-16">
+        <footer className="sticky flex flex-col gap-5 justify-center items-center w-full md:w-[50rem] lg:w-[65rem] px-4 md:px-20">
           <Search />
           {/* <SelectMenu indexes={indexes} /> */}
+          <Footer />
         </footer>
       </main>
     </div>

@@ -37,7 +37,7 @@ export default function Conversation() {
       style={{
         maxHeight: `calc(100vh - 280px)`,
       }}
-      className={`flex-grow w-full overflow-auto`}
+      className={`flex-grow w-full overflow-scroll whitespace-pre-wrap scrollbar-hide`}
     >
       <ul role="list" className="flex flex-col gap-4">
         {generateList()}
