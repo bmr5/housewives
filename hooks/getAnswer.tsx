@@ -9,6 +9,7 @@ const url = "https://api.askthings.app/hyde_query";
 const headers = {
   "Content-Type": "application/json",
   Authorization: process.env.AUTHORIZATION ?? "",
+  credentials: "include",
 };
 
 function getAnswer({ query, index, onSuccess, onError }: Props) {

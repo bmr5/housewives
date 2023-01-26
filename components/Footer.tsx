@@ -71,7 +71,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 md:flex md:flex-col md:items-center lg:px-8 mb-2">
         <div className=" md:order-1 md:mt-0">
           <p className="text-center text-xxs leading-5 text-gray-500">
-            Project by Intuitive Systems project. Enjoy!
+            Project by Intuitive Systems. Enjoy!
           </p>
         </div>
         <div className="flex justify-center space-x-6 md:order-2">
