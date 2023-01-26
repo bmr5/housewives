@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = {
   query: string;
   index: string;
@@ -10,7 +8,7 @@ type Props = {
 const url = "https://api.askthings.app/hyde_query";
 const headers = {
   "Content-Type": "application/json",
-  Authorization: "Bearer bofa-deez-nuts",
+  Authorization: process.env.AUTHORIZATION ?? "",
 };
 
 function getAnswer({ query, index, onSuccess, onError }: Props) {
