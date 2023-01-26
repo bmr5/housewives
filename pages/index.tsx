@@ -38,7 +38,7 @@ export default function Home({
             <Content />
           )}
         </div>
-        <footer className="sticky flex flex-col gap-5 justify-center items-center w-full md:w-[50rem] lg:w-[65rem] px-4 md:px-20">
+        <footer className="sticky flex flex-col gap-2 sm:gap-5 justify-center items-center w-full md:w-[50rem] lg:w-[65rem] px-4 md:px-20">
           <Search />
           {/* <SelectMenu indexes={indexes} /> */}
           <Footer />
