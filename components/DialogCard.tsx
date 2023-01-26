@@ -58,8 +58,7 @@ function DialogCard({ text, type }: Props) {
                     return <p className="" {...props} />;
                   },
                   pre: ({ node, ...props }) => {
-                    console.log({ node, props });
-
+                    // @ts-ignore
                     return <p className="" {...props} />;
                   },
                 }}
