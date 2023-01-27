@@ -15,7 +15,6 @@ type Props = {
 
 function postFeedback({ onSuccess, onError, method, id }: Props) {
   const uuid = getCookie({ name: "sesh" });
-  console.log({ method, uuid, id });
   const url = `https://api.dev.askthings.app/rate-response/${uuid}/${id}/${method}`;
 
   return fetch(url, {
@@ -25,7 +24,6 @@ function postFeedback({ onSuccess, onError, method, id }: Props) {
     .then((res) => res.json())
     .then((data) => {
       onSuccess && onSuccess(data);
-      console.log({ data });
       return data;
     })
     .catch((err) => {
