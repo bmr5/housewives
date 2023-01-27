@@ -9,9 +9,22 @@ export type Dialog = {
   index: Index;
 };
 
+export type Answer = {
+  cached?: boolean;
+  id?: number;
+  index?: string;
+  negative?: number;
+  positive?: number;
+  query: string;
+  query_type?: string;
+  response?: string;
+  uuid?: string;
+  loading?: boolean;
+};
+
 interface DialogContext {
-  conversation: string[];
-  setConversation: Dispatch<React.SetStateAction<string[]>>;
+  conversation: Answer[];
+  setConversation: Dispatch<React.SetStateAction<Answer[]>>;
   selectedIndex: Index;
   setSelectedIndex: Dispatch<SetStateAction<Index>>;
 }
@@ -25,7 +38,7 @@ type Props = {
 };
 
 export const DialogProvider = ({ children }: Props) => {
-  const [conversation, setConversation] = useState<string[]>([]);
+  const [conversation, setConversation] = useState<Answer[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<Index>({
     id: 1,
     name: "rhobh",

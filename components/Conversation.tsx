@@ -17,13 +17,13 @@ export default function Conversation() {
   }, [conversation]);
 
   const generateList = () => {
-    return (conversation ?? []).map((text, i) => {
+    return (conversation ?? []).map((data, i) => {
       const type = i % 2 === 0 ? "question" : "answer";
       return (
         <li key={i}>
           <div className="flex flex-col gap-4">
             <div className="flex space-x-3">
-              <DialogCard text={text} type={type} />
+              <DialogCard data={data} type={type} />
             </div>
           </div>
         </li>

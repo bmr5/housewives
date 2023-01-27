@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect } from "react";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
-import { DialogContext } from "../providers/DialogProvider";
+import { Answer, DialogContext } from "../providers/DialogProvider";
 import getAnswer from "../hooks/getAnswer";
 
 type Props = {};
@@ -14,7 +14,6 @@ function Search({}: Props) {
 
   const askQuestion = useCallback(
     (query: string) => {
-      console.log("asking question");
       if (
         conversation != null &&
         setConversation != null &&
@@ -23,20 +22,26 @@ function Search({}: Props) {
       ) {
         setDisabled(true);
 
-        let newConversation = [...conversation, query, "setLoadingIndicator"];
+        let newConversation = [
+          ...conversation,
+          { query },
+          { query, loading: true },
+        ];
         setConversation(newConversation);
         setInput("");
 
-        const answerIndexToReplace = newConversation.length - 1;
+        const indexToReplace = newConversation.length - 1;
+
         const onSuccess = (data: any) => {
-          console.log("onSucess");
-          newConversation[answerIndexToReplace] = data.answer;
+          newConversation[indexToReplace] = data;
           setConversation([...newConversation]);
           setDisabled(false);
         };
         const onError = (err: any) => {
-          newConversation[answerIndexToReplace] =
-            "Sorry, we were unable to answer your question.";
+          newConversation[indexToReplace] = {
+            query,
+            response: "sorry, we were unable to answer your question",
+          };
           setConversation([...newConversation]);
           setDisabled(false);
         };
