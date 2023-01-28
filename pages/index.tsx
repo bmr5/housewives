@@ -86,7 +86,7 @@ export default function Home({
         <footer className="sticky flex flex-col gap-10 justify-center items-center w-full md:w-[50rem] lg:w-[65rem] px-4 md:px-20">
           <Search />
           {/* <SelectMenu indexes={indexes} /> */}
-          {/* <Footer /> */}
+          <Footer />
         </footer>
       </main>
     </>
