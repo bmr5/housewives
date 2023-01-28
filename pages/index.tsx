@@ -52,6 +52,7 @@ export default function Home({
           sizes="16x16"
           href="/favicon-16x16.png"
         />
+
       </Head>
 
       <main className="flex flex-col items-center">
