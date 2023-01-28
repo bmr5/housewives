@@ -24,6 +24,7 @@ function postFeedback({ onSuccess, onError, method, id }: Props) {
     .then((res) => res.json())
     .then((data) => {
       onSuccess && onSuccess(data);
+      console.log({ data });
       return data;
     })
     .catch((err) => {

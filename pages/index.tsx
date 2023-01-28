@@ -11,6 +11,7 @@ import SelectMenu from "../components/SelectMenu";
 import getIndexes from "../hooks/getIndexes";
 import { InferGetStaticPropsType } from "next";
 import Footer from "../components/Footer";
+import Script from "next/script";
 
 const appHeight = () => {
   const doc = document.documentElement;
@@ -51,6 +52,22 @@ export default function Home({
           sizes="16x16"
           href="/favicon-16x16.png"
         />
+        <div className="container">
+          {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-LSPH19721C');
+        `}
+          </Script>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-LSPH19721C"
+            strategy="afterInteractive"
+          />
+        </div>
       </Head>
 
       <main className="flex flex-col items-center">
