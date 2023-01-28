@@ -4,9 +4,9 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const examples = [
   "Will Kyle's relationship ever emotionally fulfill her?",
-  "What is the name of Lisa Vanderpump's dog?",
+  "Summarize season 4 episode 1",
   "How would Yolanda recommend treating Lyme disease?",
-  "Where does Lisa Rinna live?",
+  "Who are all the main housewives?",
 ];
 
 const capabilities = [

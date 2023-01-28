@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import FeedbackForm from "./FeedbackForm";
 
 const navigation = [
   //   {
@@ -69,10 +70,11 @@ export default function Footer() {
   return (
     <footer className="bg-white sm:w-1/2">
       <div className="mx-auto max-w-7xl px-6 md:flex md:flex-col md:items-center lg:px-8 mb-2">
-        <div className=" md:order-1 md:mt-0">
-          <p className="text-center text-xxs leading-5 text-gray-500">
-            Project by Intuitive Systems. Enjoy!
+        <div className=" md:order-1 md:mt-0 flex">
+          <p className="text-center text-xxs leading-5 text-gray-500 pr-1">
+            Project by Conner Swann.
           </p>
+          <FeedbackForm />
         </div>
         <div className="flex justify-center space-x-6 md:order-2">
           {navigation.map((item) => (

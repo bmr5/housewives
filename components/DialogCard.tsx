@@ -77,7 +77,7 @@ function DialogCard({ data, type }: Props) {
           )}
         </div>
         {!isQuestion && (
-          <div>
+          <div className="h-full">
             <svg
               onClick={() => {
                 if (voteState === "up") {
