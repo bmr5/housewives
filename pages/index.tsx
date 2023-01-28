@@ -52,7 +52,7 @@ export default function Home({
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        
+
       </Head>
 
       <main className="flex flex-col items-center">
@@ -71,7 +71,7 @@ export default function Home({
         <footer className="sticky flex flex-col gap-10 justify-center items-center w-full md:w-[50rem] lg:w-[65rem] px-4 md:px-20">
           <Search />
           {/* <SelectMenu indexes={indexes} /> */}
-          {/* <Footer /> */}
+          <Footer />
         </footer>
       </main>
     </>
