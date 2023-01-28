@@ -11,7 +11,6 @@
   "dependencies": {
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
-    "@sentry/nextjs": "^7.34.0",
     "@tailwindcss/forms": "^0.5.3",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
